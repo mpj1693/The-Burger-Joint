@@ -11,7 +11,7 @@ else {
     host: "localhost",
     port: 3306,
     user: "root",
-    password: "OpKlNm90",
+    password: process.env.DB_PASS,
     database: "burgers_db"
   });
 }
