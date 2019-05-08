@@ -1,63 +1,61 @@
-<div class="container text-center border border-warning mt-5 bg-secondary">
+<div class="container text-center border border-warning mt-5 bg-secondary shadow-lg">
 
-<div class="jumbotron jumbotron-fluid bg-warning text-dark p-4 mt-3">
-  <div><font class="font-weight-bold" size="25">The Burger Joint</font></div>
-</div>
+  <div class="jumbotron jumbotron-fluid bg-warning text-dark p-4 mt-3">
+    <div>
+      <font class="font-weight-bold" size="25">The Burger Joint</font>
+    </div>
+  </div>
 
   <div class="row mb-4">
     <div class="col-8">
       <form id="burger-form">
-        <input class="form-control" id="name-input" placeholder="Burger Name"/>
-        </div>
-        <div class="col-4">
-        <button class="btn btn-info btn-block" type="submit">
-          Add A Burger!
-        </button>
+        <input class="form-control" id="name-input" placeholder="Burger Name" />
+    </div>
+    <div class="col-4">
+      <button class="btn btn-info btn-block shadow-lg" type="submit">
+        Add A Burger!
+      </button>
       </form>
     </div>
+  </div>
+
+  <div class="row mb-3">
+    <div class="col-12 col-md-6">
+      <h2>Ready to be<br>devoured</h2>
+      <ul class="list-group">
+        {{#each burgerData}}
+        {{#unless eaten}}
+        <li class="list-group-item d-flex mb-2 font-weight-bold">
+          {{name}}
+          <span class="ml-auto">
+            <button data-id="{{id}}" data-eaten="true" class="btn btn-sm btn-success update-burger shadow-lg">
+              Devour
+            </button>
+
+          </span>
+        </li>
+        {{/unless}}
+        {{/each}}
+      </ul>
     </div>
-
-<div class="row mb-3">
-        <div class="col-12 col-md-6">
-          <h2>Ready to be<br>devoured</h2>
-          <ul class="list-group">
-            {{#each burgerData}}
-              {{#unless eaten}}
-                <li class="list-group-item d-flex">
-                  {{name}} 
-                  <span class="ml-auto">
-                    <button 
-                      data-id="{{id}}"
-                      data-eaten="true"
-                      class="btn btn-sm btn-success update-burger"
-                      >
-                    Devour
-                    </button>
-
-                  </span>
-                </li>
-              {{/unless}}
-            {{/each}}
-          </ul>
-        </div>
-        <div class="col-6">
-          <h2>Devoured<br>Burgers</h2>
-          <ul class="list-group">
-            {{#each burgerData}}
-            {{#if eaten}}
-            <li class="list-group-item d-flex">
-              {{name}}
-              <span class="ml-auto">
-                <button data-id="{{id}}" class="btn btn-sm btn-danger delete-burger">
-                  Trash
-                </button>
-              </span>
-            </li>
-            {{/if}}
-            {{/each}}
-          </ul>
-        </div>
+    <div class="col-6">
+      <h2>Devoured<br>Burgers</h2>
+      <ul class="list-group">
+        {{#each burgerData}}
+        {{#if eaten}}
+        <li class="list-group-item d-flex font-weight-bold mb-2">
+          {{name}}
+          <span class="ml-auto">
+            <button data-id="{{id}}" class="btn btn-sm btn-danger delete-burger shadow-lg">
+              Trash
+            </button>
+          </span>
+        </li>
+        {{/if}}
+        {{/each}}
+      </ul>
+    </div>
   </div>
-  </div>
+</div>
 
 <script src="./assets/js/burgers.js"></script>
