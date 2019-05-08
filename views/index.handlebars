@@ -1,0 +1,62 @@
+<div class="jumbotron jumbotron-fluid bg-dark text-light p-5">
+  <h1>The Burger Joint</h1>
+</div>
+
+<div class="container text-center">
+  <div class="row">
+    <div class="col-12 col-md-3">
+      <form id="burger-form">
+        <input class="form-control" id="name-input" placeholder="Burger Name"/>
+        <button class="btn btn-success btn-block" type="submit">
+          Name A Burger!
+        </button>
+      </form>
+    </div>
+    <div class="col-12 col-md-9">
+      <div class="row">
+        <div class="col-12 col-md-6">
+          <h2>Ready to be devoured !!!</h2>
+          <ul class="list-group">
+            {{#each burgerData}}
+              {{#unless eaten}}
+                <li class="list-group-item d-flex">
+                  {{name}} 
+                  <span class="ml-auto">
+                    <button 
+                      data-id="{{id}}"
+                      data-eaten="true"
+                      class="btn btn-sm btn-info update-burger"
+                      >
+                    Devour
+                    </button>
+
+                  </span>
+                </li>
+              {{/unless}}
+            {{/each}}
+          </ul>
+        </div>
+        <div class="col-12 col-md-6">
+          <h2>Devoured Burgers</h2>
+          <ul class="list-group">
+            {{#each burgerData}}
+            {{#if eaten}}
+            <li class="list-group-item d-flex">
+              {{name}}
+              <span class="ml-auto">
+        
+                <button data-id="{{id}}" class="btn btn-sm btn-danger delete-burger">
+                  Trash
+                </button>
+              </span>
+            </li>
+            {{/if}}
+            {{/each}}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+
+<script src="./assets/js/burgers.js"></script>
