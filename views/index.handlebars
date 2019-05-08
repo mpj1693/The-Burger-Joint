@@ -1,21 +1,25 @@
-<div class="jumbotron jumbotron-fluid bg-dark text-light p-5">
-  <h1>The Burger Joint</h1>
+<div class="container text-center border border-warning mt-5 bg-secondary">
+
+<div class="jumbotron jumbotron-fluid bg-warning text-dark p-4 mt-3">
+  <div><font class="font-weight-bold" size="25">The Burger Joint</font></div>
 </div>
 
-<div class="container text-center">
-  <div class="row">
-    <div class="col-12 col-md-3">
+  <div class="row mb-4">
+    <div class="col-8">
       <form id="burger-form">
         <input class="form-control" id="name-input" placeholder="Burger Name"/>
-        <button class="btn btn-success btn-block" type="submit">
-          Name A Burger!
+        </div>
+        <div class="col-4">
+        <button class="btn btn-info btn-block" type="submit">
+          Add A Burger!
         </button>
       </form>
     </div>
-    <div class="col-12 col-md-9">
-      <div class="row">
+    </div>
+
+<div class="row mb-3">
         <div class="col-12 col-md-6">
-          <h2>Ready to be devoured !!!</h2>
+          <h2>Ready to be<br>devoured</h2>
           <ul class="list-group">
             {{#each burgerData}}
               {{#unless eaten}}
@@ -25,7 +29,7 @@
                     <button 
                       data-id="{{id}}"
                       data-eaten="true"
-                      class="btn btn-sm btn-info update-burger"
+                      class="btn btn-sm btn-success update-burger"
                       >
                     Devour
                     </button>
@@ -36,15 +40,14 @@
             {{/each}}
           </ul>
         </div>
-        <div class="col-12 col-md-6">
-          <h2>Devoured Burgers</h2>
+        <div class="col-6">
+          <h2>Devoured<br>Burgers</h2>
           <ul class="list-group">
             {{#each burgerData}}
             {{#if eaten}}
             <li class="list-group-item d-flex">
               {{name}}
               <span class="ml-auto">
-        
                 <button data-id="{{id}}" class="btn btn-sm btn-danger delete-burger">
                   Trash
                 </button>
@@ -54,8 +57,6 @@
             {{/each}}
           </ul>
         </div>
-      </div>
-    </div>
   </div>
   </div>
 
